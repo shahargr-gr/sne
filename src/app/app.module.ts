@@ -26,6 +26,7 @@ import { InputAreaComponent } from './common/input-area/input-area.component';
 import { DialogService } from './common/dialog';
 import { AdminGuard } from './users/roles';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HomeComponent,
     YesNoQuestionComponent,
     SignInComponent,
-    InputAreaComponent
+    InputAreaComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
