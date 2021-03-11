@@ -26,7 +26,6 @@
                 "$tsc"
             ]
         },
-     
         {
             "type": "npm",
             "script": "node-serve",
@@ -36,6 +35,16 @@
             "presentation": {
                 "group": "groupA"
             },
+            "isBackground": true
+        },
+        {
+            "type": "npm",
+            "script": "deploy-to-heroku",
+            "problemMatcher": [
+                "$tsc-watch"
+            ],
+            "label": "npm: deploy-to-heroku",
+            "detail": "git push heroku master",
             "isBackground": true
         }
     ]
