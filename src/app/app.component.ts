@@ -35,7 +35,7 @@ export class AppComponent {
   signInText() {
     if (this.context.user)
       return this.context.user.name;
-    return 'Sign in';
+    return 'התחברות';
   }
   async signIn() {
     if (!this.context.user) {

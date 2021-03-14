@@ -2,7 +2,7 @@
 <form class="example-form" (submit)="signIn()">
   <div mat-dialog-content>
     <mat-form-field>
-      <input matInput placeholder="username" [(ngModel)]="user" [ngModelOptions]="{standalone: true}">
+      <input matInput placeholder="שם משתמש" [(ngModel)]="user" [ngModelOptions]="{standalone: true}">
     </mat-form-field>
     <br>
     <mat-form-field>
@@ -10,7 +10,7 @@
     </mat-form-field>
   </div>
   <div mat-dialog-actions>
-    <button mat-raised-button color="primary" type="submit">Sign in</button>
-    <button mat-raised-button (click)="cancel()">cancel</button>
+    <button mat-raised-button color="primary" type="submit">כניסה</button>
+    <button mat-raised-button (click)="cancel()">ביטול</button>
   </div>
 </form>
