@@ -32,6 +32,7 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { CustomersComponent } from './customers/customers.component';
 import { CustomerProductsComponent } from './customer-products/customer-products.component';
+import { SelectProductComponent } from './select-product/select-product.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { CustomerProductsComponent } from './customer-products/customer-products
     ShoppingCartComponent,
     ContactUsComponent,
     CustomersComponent,
-    CustomerProductsComponent
+    CustomerProductsComponent,
+    SelectProductComponent
   ],
   imports: [
     BrowserModule,
