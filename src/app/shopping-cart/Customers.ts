@@ -1,5 +1,6 @@
 import { IdEntity, StringColumn, EntityClass, NumberColumn, DateColumn, IdColumn } from '@remult/core';
 import { Agent } from 'http';
+import { Roles } from '../users/roles';
 import { Agents } from './Agents';
 import { Areas } from './Areas';
 
@@ -11,7 +12,7 @@ export class Customers extends IdEntity {
     constructor() {
         super({
             name: "Customers",
-            allowApiCRUD:true,
+            allowApiCRUD:Roles.admin,
             allowApiRead:true
         });
     }
