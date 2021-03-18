@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,6 +30,9 @@ import { LoginComponent } from './login/login.component';
 import { CreateOrderComponent } from './create-order/create-order.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { CustomersComponent } from './customers/customers.component';
+import { CustomerProductsComponent } from './customer-products/customer-products.component';
+
 
 @NgModule({
   declarations: [
@@ -44,7 +47,9 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     LoginComponent,
     CreateOrderComponent,
     ShoppingCartComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    CustomersComponent,
+    CustomerProductsComponent
   ],
   imports: [
     BrowserModule,
@@ -64,8 +69,23 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     RemultModule,
     BrowserAnimationsModule
   ],
-  providers: [DialogService, AdminGuard],
+  providers: [DialogService, AdminGuard, {
+    provide: APP_INITIALIZER,
+    deps: [],
+    useFactory: waitOnInit,
+    multi: true
+  }],
   bootstrap: [AppComponent],
-  entryComponents: [YesNoQuestionComponent, SignInComponent, InputAreaComponent]
+  entryComponents: [YesNoQuestionComponent, SignInComponent, InputAreaComponent, CustomerProductsComponent]
 })
 export class AppModule { }
+export function waitOnInit() {
+  if (false)
+    return () => { };
+  else
+    return async () => {
+      return new Promise((res) => setTimeout(() => {
+        res({})
+      }, 2000));
+    }
+}

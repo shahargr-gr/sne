@@ -13,10 +13,12 @@ import { LoginComponent } from './login/login.component';
 import { CreateOrderComponent } from './create-order/create-order.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { CustomersComponent } from './customers/customers.component';
 
 
 const routes: Routes = [
   { path: 'Home', component: HomeComponent },
+  { path: 'Customers', component: CustomersComponent,data:{name:'לקוחות'} },
   { path: 'User Accounts', component: UsersComponent, canActivate: [AdminGuard] },
   { path: 'create-order', component: CreateOrderComponent, data: { name: 'צור הזמנה' } },
   { path: 'shopping-cart', component: ShoppingCartComponent, data: { name: 'עגלת קניות' }},

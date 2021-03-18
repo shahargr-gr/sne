@@ -4,6 +4,7 @@ import { Context, ServerFunction } from '@remult/core';
 
 import { DialogService } from '../common/dialog';
 import { Roles } from './roles';
+import { Customers } from '../shopping-cart/Customers';
 
 
 @Component({
@@ -22,13 +23,18 @@ export class UsersComponent implements OnInit {
     allowDelete: true,
     allowInsert: true,
     allowUpdate: true,
-    numOfColumnsInGrid: 2,
+    numOfColumnsInGrid: 3,
     get: {
       orderBy: h => [h.name],
       limit: 100
     },
     columnSettings: users => [
       users.name,
+      {
+        column:users.customer,
+        valueList:this.context.for(Customers).getValueList()
+
+      },
       users.admin
 
 

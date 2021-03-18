@@ -1,5 +1,5 @@
 
-import { Entity, IdEntity, IdColumn, checkForDuplicateValue, StringColumn, BoolColumn, ColumnOptions } from "@remult/core";
+import { Entity, IdEntity, IdColumn, checkForDuplicateValue, StringColumn, BoolColumn, ColumnOptions, UserInfo } from "@remult/core";
 import { changeDate } from '../shared/types';
 import { Context, EntityClass } from '@remult/core';
 import { Roles } from './roles';
@@ -49,6 +49,7 @@ export class Users extends IdEntity {
                 this.name.validationError = 'Name is too short';
         }
     });
+    customer = new IdColumn();
 
     realStoredPassword = new StringColumn({
         dbName: 'password',
@@ -92,3 +93,7 @@ export class UserId extends IdColumn {
 
 }
 
+export interface sneUserInfo extends UserInfo{
+    customerId:string;
+    customerName:String;
+}

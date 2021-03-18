@@ -11,6 +11,7 @@ import { SignInComponent } from './common/sign-in/sign-in.component';
 
 import { DialogService } from './common/dialog';
 import { JwtSessionManager, RouteHelperService } from '@remult/angular';
+import { sneUserInfo } from './users/users';
 
 @Component({
   selector: 'app-root',
@@ -34,7 +35,7 @@ export class AppComponent {
   }
   signInText() {
     if (this.context.user)
-      return this.context.user.name;
+      return this.context.user.name +" מ"+(<sneUserInfo>this.context.user).customerName;
     return 'התחברות';
   }
   async signIn() {
