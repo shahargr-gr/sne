@@ -27,7 +27,7 @@ const routes: Routes = [
   { path: 'contact-us', component: ContactUsComponent, data: { name: 'צור קשר' }},
   // { path: 'Login', component: LoginComponent },
 
-  { path: 'register', component: RegisterComponent, canActivate: [NotSignedInGuard], data: { name: 'הרשמה' } },
+  { path: 'register', component: RegisterComponent, canActivate: [AdminGuard], data: { name: 'הרשמה' } },
   { path: 'Account Info', component: UpdateInfoComponent, canActivate: [SignedInGuard] , data: { name: 'ניהול פרטי משתמש' }},
   { path: '', redirectTo: '/Home', pathMatch: 'full' },
   { path: '**', redirectTo: '/Home', pathMatch: 'full' }
