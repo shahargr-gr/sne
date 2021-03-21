@@ -18,17 +18,17 @@ import { SelectProductComponent } from './select-product/select-product.componen
 
 
 const routes: Routes = [
-  { path: 'Home', component: HomeComponent },
+  { path: 'Home', component: HomeComponent, data: { name: 'דף הבית' } },
   { path: 'select-product', component: SelectProductComponent,data:{name:'מוצרים'} },
   { path: 'Customers', component: CustomersComponent, canActivate: [AdminGuard], data:{name:'לקוחות'} },
-  { path: 'User Accounts', component: UsersComponent, canActivate: [AdminGuard] },
+  { path: 'User Accounts', component: UsersComponent, canActivate: [AdminGuard], data: { name: 'ניהול משתמשים' } },
   { path: 'create-order', component: CreateOrderComponent, data: { name: 'צור הזמנה' } },
   { path: 'shopping-cart', component: ShoppingCartComponent, data: { name: 'עגלת קניות' }},
   { path: 'contact-us', component: ContactUsComponent, data: { name: 'צור קשר' }},
-  { path: 'Login', component: LoginComponent },
+  // { path: 'Login', component: LoginComponent },
 
   { path: 'register', component: RegisterComponent, canActivate: [NotSignedInGuard], data: { name: 'הרשמה' } },
-  { path: 'Account Info', component: UpdateInfoComponent, canActivate: [SignedInGuard] },
+  { path: 'Account Info', component: UpdateInfoComponent, canActivate: [SignedInGuard] , data: { name: 'ניהול פרטי משתמש' }},
   { path: '', redirectTo: '/Home', pathMatch: 'full' },
   { path: '**', redirectTo: '/Home', pathMatch: 'full' }
 
