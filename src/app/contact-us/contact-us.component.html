@@ -1,1 +1,12 @@
-<p>contact-us works!</p>
+
+<ng-container *ngIf="!context.isSignedIn()">
+    <h1> ! צור קשר </h1>
+     <h3> למשרד - <a> 03-964587 </a>  </h3>
+
+  </ng-container>
+  <ng-container *ngIf="context.isSignedIn()">
+    <h1> !צור קשר </h1>
+    <h3> למשרד - <a> 03-964587 </a>  </h3>
+    <h3> לסוכן - <a> 03-964587 </a>  </h3>
+  </ng-container>
+  
