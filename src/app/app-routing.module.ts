@@ -19,11 +19,11 @@ import { SelectProductComponent } from './select-product/select-product.componen
 
 const routes: Routes = [
   { path: 'Home', component: HomeComponent, data: { name: 'דף הבית' } },
-  { path: 'select-product', component: SelectProductComponent,canActivate: [AdminGuard],data:{name:'מוצרים'} },
+  { path: 'select-product', component: SelectProductComponent,canActivate: [SignedInGuard],data:{name:'מוצרים'} },
   { path: 'Customers', component: CustomersComponent, canActivate: [AdminGuard], data:{name:'לקוחות'} },
   { path: 'User Accounts', component: UsersComponent, canActivate: [AdminGuard], data: { name: 'ניהול משתמשים' } },
-  { path: 'create-order', component: CreateOrderComponent, data: { name: 'צור הזמנה' } },
-  { path: 'shopping-cart', component: ShoppingCartComponent, data: { name: 'עגלת קניות' }},
+  { path: 'create-order', component: CreateOrderComponent,canActivate: [SignedInGuard], data: { name: 'צור הזמנה' } },
+  { path: 'shopping-cart', component: ShoppingCartComponent,canActivate: [SignedInGuard], data: { name: 'עגלת קניות' }},
   { path: 'contact-us', component: ContactUsComponent, data: { name: 'צור קשר' }},
   // { path: 'Login', component: LoginComponent },
 
