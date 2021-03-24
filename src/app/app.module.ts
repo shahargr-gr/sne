@@ -33,6 +33,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { CustomersComponent } from './customers/customers.component';
 import { CustomerProductsComponent } from './customer-products/customer-products.component';
 import { SelectProductComponent } from './select-product/select-product.component';
+import { ImportExcelComponent } from './customers/import-from-excel.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { SelectProductComponent } from './select-product/select-product.componen
     ContactUsComponent,
     CustomersComponent,
     CustomerProductsComponent,
-    SelectProductComponent
+    SelectProductComponent,
+    ImportExcelComponent
   ],
   imports: [
     BrowserModule,
@@ -78,7 +80,8 @@ import { SelectProductComponent } from './select-product/select-product.componen
     multi: true
   }],
   bootstrap: [AppComponent],
-  entryComponents: [YesNoQuestionComponent, SignInComponent, InputAreaComponent, CustomerProductsComponent]
+  entryComponents: [YesNoQuestionComponent, SignInComponent, InputAreaComponent, CustomerProductsComponent,
+  ImportExcelComponent]
 })
 export class AppModule { }
 export function waitOnInit() {
