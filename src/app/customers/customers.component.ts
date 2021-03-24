@@ -13,7 +13,7 @@ export class CustomersComponent implements OnInit {
   constructor(private context: Context) { }
   customers = this.context.for(Customers).gridSettings({
     allowCRUD: true,
-    columnSettings: c => [c.name],
+    columnSettings: c => [c.name,c.CustomerNumber],
     rowButtons:[{
       textInMenu:'מוצרים',
       click:async c=>{

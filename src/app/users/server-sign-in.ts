@@ -26,7 +26,6 @@ export class ServerSignIn {
             }
 
         if (result) {
-            console.log(result);
             return ServerSignIn.helper.createSecuredTokenBasedOn(<any>result);
         }
         return undefined;

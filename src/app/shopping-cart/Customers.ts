@@ -10,7 +10,7 @@ export class Customers extends IdEntity {
     name = new StringColumn();
     Area_ID = new IdColumn();
     Agent_ID= new IdColumn();
-    Customer_ID: any;
+    CustomerNumber = new NumberColumn();
     constructor(private context:Context) {
         super({
             name: "Customers",
@@ -18,7 +18,7 @@ export class Customers extends IdEntity {
             allowApiRead:c=>context.isSignedIn(),
             apiDataFilter:()=>{
                 if (!context.isAllowed(Roles.admin)){
-                    return this.Customer_ID.isEqualTo((<sneUserInfo>context.user).customerId);
+                    return this.id.isEqualTo((<sneUserInfo>context.user).customerId);
                 }
 
             }
