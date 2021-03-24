@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Context } from '@remult/core';
 import { Products_to_Customer } from '../shopping-cart/Products_to_Customer';
+import { ImportExcelComponent } from './import-from-excel.component';
+
 
 @Component({
   selector: 'app-customer-products',
