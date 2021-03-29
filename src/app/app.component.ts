@@ -42,7 +42,7 @@ export class AppComponent {
     if (!this.context.user) {
       this.dialog.open(SignInComponent);
     } else {
-      if (await this.dialogService.yesNoQuestion("Would you like to sign out?")) {
+      if (await this.dialogService.yesNoQuestion("האם אתה מעוניין להתנתק?")) {
         this.sessionManager.signout();
         this.router.navigate(['/']);
       }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Context, ServerFunction } from '@remult/core';
 import * as xlsx from 'xlsx';//https://sheetjs.com/
 import { Customers } from '../shopping-cart/Customers';
+import { Products_to_Customer } from '../shopping-cart/Products_to_Customer';
 import { Roles } from '../users/roles';
 
 @Component({
@@ -11,7 +12,10 @@ import { Roles } from '../users/roles';
   `,
     styles: []
 })
-export class ImportExcelComponent {
+export class ImportExcelComponentCustomer_products {
+    args:{
+        customerId:string
+    }
 
     async onFileInput(eventArgs: any) {
         for (const file of eventArgs.target.files) {
@@ -35,7 +39,7 @@ export class ImportExcelComponent {
 
 
 
-                    let processed = await ImportExcelComponent.ImportCustomers(dataArray);
+                    let processed = await ImportExcelComponentCustomer_products.ImportCustomer_Products(this.args.customerId,dataArray);
                     alert("loaded " + processed + " customers");
                 };
                 fileReader.readAsArrayBuffer(f);
@@ -45,22 +49,29 @@ export class ImportExcelComponent {
     }
 
     @ServerFunction({ allowed: Roles.admin })
-    static async ImportCustomers(dataArray: any, context?: Context) {
-        let i = 0;
-        for (let index = 1; index < dataArray.length; index++) {
-            i++;
-            const row = dataArray[index];
-            let p = await context.for(Customers).findFirst(p => p.CustomerNumber.isEqualTo(row[xlsx.utils.decode_col("A")]));
-            //if product doesn't exist, create it
-            if (!p) {
-                p = context.for(Customers).create();
-                p.CustomerNumber.value = row[xlsx.utils.decode_col("A")];
+    static async ImportCustomer_Products(customerId:string,dataArray: any, context?: Context) {
+        
+        
+            let i = 0;
+            for (let index = 3; index < dataArray.length; index++) {
+                i++;
+                const row = dataArray[index];
+                let p = await context.for(Products_to_Customer).findFirst(p =>
+                    p.CustomerId.isEqualTo(customerId).and(
+                     p.ProductSerialNumber.isEqualTo(row[xlsx.utils.decode_col("A")])));
+                if (!p) {
+                    p = context.for(Products_to_Customer).create();
+                    p.ProductSerialNumber.value = row[xlsx.utils.decode_col("A")];
+                    p.CustomerId.value = customerId;
+                }
+                p.Product_Name.value = row[xlsx.utils.decode_col("E")];
+                p.category.value= row[xlsx.utils.decode_col("O")];
+                await p.save();
             }
-            p.name.value = row[xlsx.utils.decode_col("B")];
-            await p.save();
-        }
 
-        return i;
+            return i;
+        
+
     }
 
 }

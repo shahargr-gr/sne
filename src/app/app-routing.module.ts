@@ -15,6 +15,7 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { CustomersComponent } from './customers/customers.component';
 import { SelectProductComponent } from './select-product/select-product.component';
+import { CustomerProductsComponent } from './customer-products/customer-products.component';
 
 
 const routes: Routes = [
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'create-order', component: CreateOrderComponent,canActivate: [SignedInGuard], data: { name: 'צור הזמנה' } },
   { path: 'shopping-cart', component: ShoppingCartComponent,canActivate: [SignedInGuard], data: { name: 'עגלת קניות' }},
   { path: 'contact-us', component: ContactUsComponent, data: { name: 'צור קשר' }},
+  
   // { path: 'Login', component: LoginComponent },
 
   { path: 'register', component: RegisterComponent, canActivate: [AdminGuard], data: { name: 'הרשמה' } },

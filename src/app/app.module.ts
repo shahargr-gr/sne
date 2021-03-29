@@ -34,6 +34,9 @@ import { CustomersComponent } from './customers/customers.component';
 import { CustomerProductsComponent } from './customer-products/customer-products.component';
 import { SelectProductComponent } from './select-product/select-product.component';
 import { ImportExcelComponent } from './customers/import-from-excel.component';
+import { ImportExcelComponentCustomer_products } from './customer-products/import-from-excel.component';
+
+
 
 
 @NgModule({
@@ -53,7 +56,8 @@ import { ImportExcelComponent } from './customers/import-from-excel.component';
     CustomersComponent,
     CustomerProductsComponent,
     SelectProductComponent,
-    ImportExcelComponent
+    ImportExcelComponent,
+    ImportExcelComponentCustomer_products
   ],
   imports: [
     BrowserModule,
@@ -81,7 +85,7 @@ import { ImportExcelComponent } from './customers/import-from-excel.component';
   }],
   bootstrap: [AppComponent],
   entryComponents: [YesNoQuestionComponent, SignInComponent, InputAreaComponent, CustomerProductsComponent,
-  ImportExcelComponent]
+  ImportExcelComponent,ImportExcelComponentCustomer_products]
 })
 export class AppModule { }
 export function waitOnInit() {

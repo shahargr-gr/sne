@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Context } from '@remult/core';
 import { CustomerProductsComponent } from '../customer-products/customer-products.component';
+import { ImportExcelComponentCustomer_products } from '../customer-products/import-from-excel.component';
 import { Customers } from '../shopping-cart/Customers';
 import { ImportExcelComponent } from './import-from-excel.component';
 
@@ -30,7 +31,16 @@ export class CustomersComponent implements OnInit {
         this.context.openDialog(CustomerProductsComponent,
           d => d.args = { customerId: c.id.value });
       }
-    }]
+    },
+    {
+      textInMenu: 'קליטת מחירון מאקסל',
+      click: async c => {
+        
+        this.context.openDialog(ImportExcelComponentCustomer_products,
+          d => d.args = { customerId: c.id.value });
+      }
+    }
+  ]
   })
   ngOnInit() {
   }
