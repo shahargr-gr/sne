@@ -17,12 +17,14 @@ export class CustomerProductsComponent implements OnInit {
   args:{
     customerId:string
   };
+
   products = this.context.for(Products_to_Customer).gridSettings({
     where:p=>p.CustomerId.isEqualTo(this.args.customerId),
     enterRow:p=>{
       if (p.isNew())
       p.CustomerId.value = this.args.customerId;
     },
+    
     allowCRUD : true,
     columnSettings:pc=>[
       pc.ProductSerialNumber,

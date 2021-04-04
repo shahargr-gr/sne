@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Context } from '@remult/core';
 import { CustomerProductsComponent } from '../customer-products/customer-products.component';
 import { ImportExcelComponentCustomer_products } from '../customer-products/import-from-excel.component';
+import { SelectProductComponent } from '../select-product/select-product.component';
 import { Customers } from '../shopping-cart/Customers';
 import { ImportExcelComponent } from './import-from-excel.component';
 
