@@ -6,11 +6,11 @@ import { sneUserInfo } from '../users/users';
 export class Products_to_Customer extends IdEntity {
     CustomerId = new StringColumn();
     ProductSerialNumber = new StringColumn('מק"ט');
-    Product_Name = new StringColumn();
-    unit_type = new StringColumn();
+    Product_Name = new StringColumn('שם המוצר');
+    unit_type = new StringColumn('יחידת מידה');
     Last_Update = new DateColumn();
     Kosher = new BoolColumn();
-    category= new StringColumn();
+    category= new StringColumn('קטגוריה');
     constructor(private context:Context) {
         super({
             name: "Products_to_Customer",

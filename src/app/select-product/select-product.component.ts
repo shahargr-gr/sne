@@ -12,6 +12,8 @@ export class SelectProductComponent implements OnInit {
   constructor(private context:Context) { }
   products:Products_to_Customer[];
 
+  
+
   async ngOnInit() {
     this.products = await this.context.for(Products_to_Customer).find({limit:100});
   }
