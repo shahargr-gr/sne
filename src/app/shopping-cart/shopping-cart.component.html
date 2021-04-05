@@ -1,2 +1,9 @@
-<h1>עגלת קניות<mat-icon>shopping_cart</mat-icon></h1> 
+<h1>עגלת קניות<mat-icon>shopping_cart</mat-icon>
+</h1>
 
+<ul>
+    <li *ngFor="let sc of shoppingCart">
+        {{product(sc).Product_Name.value}} - {{sc.Number_Of_Units.value}}
+    </li>
+</ul>
+<button (click)="createOrder()">צור הזמנה</button>
