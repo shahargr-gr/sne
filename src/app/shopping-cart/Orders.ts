@@ -1,4 +1,4 @@
-import { IdEntity, StringColumn, EntityClass, NumberColumn, DateColumn, IdColumn, Context, BoolColumn, ServerMethod } from '@remult/core';
+import { IdEntity, StringColumn, EntityClass, NumberColumn, DateColumn, IdColumn, Context, BoolColumn, ServerMethod, DataControlInfo } from '@remult/core';
 import { Roles } from '../users/roles';
 import { sneUserInfo } from '../users/users';
 import { Products_in_Order, ShoppingCart } from './Products_in_Order';
@@ -11,6 +11,9 @@ export class Orders extends IdEntity {
     Creation_Date = new DateColumn();
     IsAddition = new BoolColumn('האם זו תוספת להזמנה קיימת?');
     Delivery_Date = new DateColumn();
+  CustomerID: any;
+  ProductSerialNumber: DataControlInfo<Orders>;
+  Product_Name: DataControlInfo<Orders>;
     constructor(private context: Context) {
         super({
             name: "Orders",

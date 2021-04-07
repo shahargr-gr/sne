@@ -45,6 +45,17 @@ export class SelectProductComponent implements OnInit {
       await sc.save();
     }
   }
+
+
+  async less1Unit(p: Products_to_Customer, quantity: number) {
+    var sc = this.productInShoppingCart(p);
+    if (sc.Number_Of_Units.value - quantity > 0) {
+      sc.Number_Of_Units.value -= quantity;
+      await sc.save();
+    }
+  }
+  
+
   shouldSave(p: Products_to_Customer) {
     var r = this.productInShoppingCart(p);
     if (r.isNew())

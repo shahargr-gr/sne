@@ -15,7 +15,7 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { CustomersComponent } from './customers/customers.component';
 import { SelectProductComponent } from './select-product/select-product.component';
-import { CustomerProductsComponent } from './customer-products/customer-products.component';
+import { CustomerOrdersComponent } from './customer-orders/customer-orders.component';
 
 
 const routes: Routes = [

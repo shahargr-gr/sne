@@ -3,7 +3,8 @@
 <ul>
     <li *ngFor="let p of products">
         {{p.Product_Name.value}} -<data-control [column]="productInShoppingCart(p).Number_Of_Units"></data-control>
-        <button mat-raised-button (click)="add(p,1)">הוסף לעגלת הקניות <mat-icon>add</mat-icon></button><br><br><br>
+        <button mat-raised-button (click)="add(p,1)"><mat-icon>add</mat-icon></button>
+        <button mat-raised-button (click)="less1Unit(p,1)"><mat-icon>remove</mat-icon></button><br><br><br>
         <button (click)="productInShoppingCart(p).save()" *ngIf="shouldSave(p)">שמור</button>
         <br>
         {{productInShoppingCart(p).isNew()}}, {{productInShoppingCart(p).Number_Of_Units.value}}, {{productInShoppingCart(p).Number_Of_Units.originalValue}}

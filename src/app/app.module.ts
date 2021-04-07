@@ -35,6 +35,7 @@ import { CustomerProductsComponent } from './customer-products/customer-products
 import { SelectProductComponent } from './select-product/select-product.component';
 import { ImportExcelComponent } from './customers/import-from-excel.component';
 import { ImportExcelComponentCustomer_products } from './customer-products/import-from-excel.component';
+import { CustomerOrdersComponent } from './customer-orders/customer-orders.component';
 
 
 
@@ -57,7 +58,8 @@ import { ImportExcelComponentCustomer_products } from './customer-products/impor
     CustomerProductsComponent,
     SelectProductComponent,
     ImportExcelComponent,
-    ImportExcelComponentCustomer_products
+    ImportExcelComponentCustomer_products,
+    CustomerOrdersComponent
   ],
   imports: [
     BrowserModule,
@@ -85,7 +87,7 @@ import { ImportExcelComponentCustomer_products } from './customer-products/impor
   }],
   bootstrap: [AppComponent],
   entryComponents: [YesNoQuestionComponent, SignInComponent, InputAreaComponent, CustomerProductsComponent,
-  ImportExcelComponent,ImportExcelComponentCustomer_products]
+  ImportExcelComponent,ImportExcelComponentCustomer_products, CustomerOrdersComponent]
 })
 export class AppModule { }
 export function waitOnInit() {
