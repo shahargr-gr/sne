@@ -59,7 +59,7 @@ import { CustomerOrdersComponent } from './customer-orders/customer-orders.compo
     SelectProductComponent,
     ImportExcelComponent,
     ImportExcelComponentCustomer_products,
-    CustomerOrdersComponent
+    CustomerOrdersComponent,
   ],
   imports: [
     BrowserModule,

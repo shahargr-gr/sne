@@ -7,10 +7,10 @@ import { Areas } from './Areas';
 
 @EntityClass
 export class Customers extends IdEntity {
-    name = new StringColumn();
+    name = new StringColumn('שם');
     Area_ID = new IdColumn();
     Agent_ID= new IdColumn();
-    CustomerNumber = new NumberColumn();
+    CustomerNumber = new NumberColumn('מספר לקוח');
     constructor(private context:Context) {
         super({
             name: "Customers",

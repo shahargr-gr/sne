@@ -6,7 +6,7 @@ import { sneUserInfo } from '../users/users';
 export class Products_in_Order extends IdEntity {
     
     Order_ID = new IdColumn();
-    Number_Of_Units = new NumberColumn();
+    Number_Of_Units = new NumberColumn('כמות יחידות');
     Customer_ID = new StringColumn();
     ProductSerialNumber = new StringColumn('מק"ט');
     Product_Name = new StringColumn('שם המוצר');

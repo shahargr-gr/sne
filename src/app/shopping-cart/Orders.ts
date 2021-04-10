@@ -8,9 +8,9 @@ import { ShoppingCartComponent } from './shopping-cart.component';
 @EntityClass
 export class Orders extends IdEntity {
     Customer_ID = new IdColumn();
-    Creation_Date = new DateColumn();
+    Creation_Date = new DateColumn('תאריך יצירת הזמנה');
     IsAddition = new BoolColumn('האם זו תוספת להזמנה קיימת?');
-    Delivery_Date = new DateColumn();
+    Delivery_Date = new DateColumn('בחר תאריך למשלוח');
   CustomerID: any;
   ProductSerialNumber: DataControlInfo<Orders>;
   Product_Name: DataControlInfo<Orders>;

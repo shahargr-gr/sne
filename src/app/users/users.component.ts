@@ -48,7 +48,7 @@ export class UsersComponent implements OnInit {
 
 
   async resetPassword() {
-    if (await this.dialog.yesNoQuestion("Are you sure you want to delete the password of " + this.users.currentRow.name.value)) {
+    if (await this.dialog.yesNoQuestion("האם אתה בטוח שתרצה לשנות את הסיסמא של " + this.users.currentRow.name.value + "?")) {
       await UsersComponent.resetPassword(this.users.currentRow.id.value);
       this.dialog.info("Password deleted");
     };

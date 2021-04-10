@@ -42,26 +42,26 @@ export class Users extends IdEntity {
     }
     public static emptyPassword = 'password';
     name = new StringColumn({
-        caption: "name",
+        caption: "שם לקוח",
         validate: () => {
 
             if (!this.name.value || this.name.value.length < 2)
-                this.name.validationError = 'Name is too short';
+                this.name.validationError = 'שם קצר מדי';
         }
     });
-    customer = new IdColumn();
+    customer = new IdColumn('חברה');
 
     realStoredPassword = new StringColumn({
-        dbName: 'password',
+        dbName: 'סיסמא',
         includeInApi: false
     });
     password = new StringColumn({ caption: 'password', dataControlSettings: () => ({ inputType: 'password' }), serverExpression: () => this.realStoredPassword.value ? Users.emptyPassword : '' });
 
-    createDate = new changeDate('Create Date');
+    createDate = new changeDate('תאריך יצירה');
 
 
 
-    admin = new BoolColumn();
+    admin = new BoolColumn('מנהל');
     static passwordHelper: PasswordHelper = {
         generateHash: x => { throw ""; },
         verify: (x, y) => { throw ""; }

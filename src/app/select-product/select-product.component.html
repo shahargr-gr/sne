@@ -1,5 +1,7 @@
 <h1>מוצרים</h1>
 
+<data-control [column]="searchString"></data-control>
+
 <ul>
     <li *ngFor="let p of products">
         {{p.Product_Name.value}} -<data-control [column]="productInShoppingCart(p).Number_Of_Units"></data-control>

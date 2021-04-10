@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Context } from '@remult/core';
+import { BusyService } from '@remult/angular';
+import { Context, StringColumn } from '@remult/core';
 import { ShoppingCart } from '../shopping-cart/Products_in_Order';
 import { Products_to_Customer } from '../shopping-cart/Products_to_Customer';
 import { sneUserInfo } from '../users/users';
@@ -11,7 +12,7 @@ import { sneUserInfo } from '../users/users';
 })
 export class SelectProductComponent implements OnInit {
 
-  constructor(private context: Context) { }
+  constructor(private context: Context, private busy: BusyService) { }
   products: Products_to_Customer[];
 
 
@@ -65,5 +66,22 @@ export class SelectProductComponent implements OnInit {
 
 
   }
+
+  async loadProducts() {
+    this.products = await this.context.for(Products_to_Customer).find({
+      where: p =>
+      // if there is a search value, search by it
+        this.searchString.value ? p.Product_Name.isContains(this.searchString)
+          : undefined
+    });
+  }
+
+  searchString = new StringColumn({
+    caption: 'חפש מוצר לפי שם',
+    valueChange: async () => {
+      // the call to `this.busy.donotWait` causes the load products method to run without the "Busy" circle in the ui
+      await this.busy.donotWait(async () => await this.loadProducts());
+    }
+  })
 
 }

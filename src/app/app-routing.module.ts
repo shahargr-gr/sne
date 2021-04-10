@@ -26,7 +26,9 @@ const routes: Routes = [
   { path: 'create-order', component: CreateOrderComponent,canActivate: [SignedInGuard], data: { name: 'צור הזמנה' } },
   { path: 'shopping-cart', component: ShoppingCartComponent,canActivate: [SignedInGuard], data: { name: 'עגלת קניות' }},
   { path: 'contact-us', component: ContactUsComponent, data: { name: 'צור קשר' }},
-  
+
+
+
   // { path: 'Login', component: LoginComponent },
 
   { path: 'register', component: RegisterComponent, canActivate: [AdminGuard], data: { name: 'הרשמה' } },

@@ -4,8 +4,8 @@ import { sneUserInfo } from '../users/users';
 
 @EntityClass
 export class Areas extends IdEntity {
-    name = new StringColumn();
-    Delivery_Days = new StringColumn();
+    name = new StringColumn('שם');
+    Delivery_Days = new StringColumn('ימי משלוח');
     static Id: any;
     Customer_ID: any;
     constructor(private context:Context) {

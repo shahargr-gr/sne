@@ -4,8 +4,8 @@ import { sneUserInfo } from '../users/users';
 
 @EntityClass
 export class Agents extends IdEntity {
-    Name = new StringColumn();
-    Phone = new NumberColumn();
+    Name = new StringColumn('שם');
+    Phone = new NumberColumn('טלפון');
     constructor(private context:Context) {
         super({
             name: "Agents",
