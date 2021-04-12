@@ -5,7 +5,8 @@ import { Agents } from './Agents';
 import { Areas } from './Areas';
 import { Customers } from './Customers';
 import { Orders } from './Orders';
-import { Products_in_Order, ShoppingCart } from './Products_in_Order';
+import { Products_in_Order } from './Products_in_Order';
+import { ShoppingCart } from "./ShoppingCart";
 import { Products_to_Customer } from './Products_to_Customer';
 
 @Component({

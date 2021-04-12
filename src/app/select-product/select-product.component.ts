@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BusyService } from '@remult/angular';
 import { Context, StringColumn } from '@remult/core';
-import { ShoppingCart } from '../shopping-cart/Products_in_Order';
+import { ShoppingCart } from "../shopping-cart/ShoppingCart";
 import { Products_to_Customer } from '../shopping-cart/Products_to_Customer';
 import { sneUserInfo } from '../users/users';
 
