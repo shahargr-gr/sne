@@ -5,7 +5,9 @@ import { CustomerProductsComponent } from '../customer-products/customer-product
 import { ImportExcelComponentCustomer_products } from '../customer-products/import-from-excel.component';
 import { SelectProductComponent } from '../select-product/select-product.component';
 import { Customers } from '../shopping-cart/Customers';
+import { Products_in_Order } from '../products-in-order/Products_in_Order';
 import { ImportExcelComponent } from './import-from-excel.component';
+import { ProductsInOrderComponent } from '../products-in-order/products-in-order.component';
 
 @Component({
   selector: 'app-customers',
@@ -40,8 +42,19 @@ export class CustomersComponent implements OnInit {
       click: async c => {
         this.context.openDialog(CustomerOrdersComponent,
           d => d.args = { customerId: c.id.value });
-      }
-    },
+          rowButtons: [{
+            textInMenu: 'מוצרים בהזמנה',
+            click: async e => {
+              this.context.openDialog(ProductsInOrderComponent,
+                f => f.args = { customerId: e.id.value });
+            }
+          },
+      
+          
+        ]
+          
+    }
+  },
     
     {
       textInMenu: 'קליטת מחירון מאקסל',

@@ -16,6 +16,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { CustomersComponent } from './customers/customers.component';
 import { SelectProductComponent } from './select-product/select-product.component';
 import { CustomerOrdersComponent } from './customer-orders/customer-orders.component';
+import { ProductsInOrderComponent } from './products-in-order/products-in-order.component';
 
 
 const routes: Routes = [
