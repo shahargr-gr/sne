@@ -9,6 +9,6 @@
         <button mat-raised-button (click)="less1Unit(p,1)"><mat-icon>remove</mat-icon></button><br><br><br>
         <button (click)="productInShoppingCart(p).save()" *ngIf="shouldSave(p)">שמור</button>
         <br>
-        {{productInShoppingCart(p).isNew()}}, {{productInShoppingCart(p).Number_Of_Units.value}}, {{productInShoppingCart(p).Number_Of_Units.originalValue}}
+        <!-- {{productInShoppingCart(p).isNew()}}, {{productInShoppingCart(p).Number_Of_Units.value}}, {{productInShoppingCart(p).Number_Of_Units.originalValue}} -->
     </li>
 </ul>
