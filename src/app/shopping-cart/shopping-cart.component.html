@@ -4,6 +4,9 @@
 <ul>
     <li *ngFor="let sc of shoppingCart">
         {{product(sc).Product_Name.value}} - {{sc.Number_Of_Units.value}}
+        <button mat-raised-button (click)="add(sc,1)"><mat-icon>add</mat-icon></button>
+        <button mat-raised-button (click)="less1Unit(sc,1)"><mat-icon>remove</mat-icon></button><br><br><br>
+
     </li>
 </ul>
 <button (click)="createOrder()">צור הזמנה</button>

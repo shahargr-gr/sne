@@ -47,4 +47,20 @@ export class ShoppingCartComponent implements OnInit {
 
   }
 
+  async add(sc: ShoppingCart, quantity: number) {
+    var sc1 = sc;
+    if (sc1.Number_Of_Units.value + quantity > 0) {
+      sc1.Number_Of_Units.value += quantity;
+      await sc.save();
+    }
+  }
+
+  async less1Unit(sc: ShoppingCart, quantity: number) {
+    var sc1 = sc;
+    if (sc1.Number_Of_Units.value - quantity > 0) {
+      sc1.Number_Of_Units.value -= quantity;
+      await sc.save();
+    }
+  }
+
 }
