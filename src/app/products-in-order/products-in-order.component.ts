@@ -8,11 +8,12 @@ import { Products_in_Order } from './Products_in_Order';
   styleUrls: ['./products-in-order.component.scss']
 })
 export class ProductsInOrderComponent implements OnInit {
-  args: { customerId: string; };
+  args: { orderId: string; };
 
   constructor(private context: Context) { }
   customersOrder = this.context.for(Products_in_Order).gridSettings({
     allowCRUD: true,
+    where:pio=>pio.Order_ID.isEqualTo(this.args.orderId),
     columnSettings: c => [c.ProductSerialNumber, c.Product_Name,c.Number_Of_Units],
     // gridButtons: [
     //   {

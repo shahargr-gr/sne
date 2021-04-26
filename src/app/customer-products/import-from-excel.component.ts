@@ -51,19 +51,18 @@ export class ImportExcelComponentCustomer_products {
     @ServerFunction({ allowed: Roles.admin })
     static async ImportCustomer_Products(customerId:string,dataArray: any, context?: Context) {
         
-        
+        for await (const p of context.for(Products_to_Customer).iterate({
+            where:p=>p.CustomerId.isEqualTo(customerId)
+        })) {
+            await p.delete();
+        }
             let i = 0;
             for (let index = 3; index < dataArray.length; index++) {
                 i++;
                 const row = dataArray[index];
-                let p = await context.for(Products_to_Customer).findFirst(p =>
-                    p.CustomerId.isEqualTo(customerId).and(
-                     p.ProductSerialNumber.isEqualTo(row[xlsx.utils.decode_col("A")])));
-                if (!p) {
-                    p = context.for(Products_to_Customer).create();
+                let p = context.for(Products_to_Customer).create();
                     p.ProductSerialNumber.value = row[xlsx.utils.decode_col("A")];
                     p.CustomerId.value = customerId;
-                }
                 p.Product_Name.value = row[xlsx.utils.decode_col("E")];
                 p.category.value= row[xlsx.utils.decode_col("O")];
                 await p.save();

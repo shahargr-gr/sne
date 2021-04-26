@@ -20,7 +20,8 @@ export class ShoppingCartComponent implements OnInit {
   shoppingCart: ShoppingCart[];
 
   async ngOnInit() {
-    this.shoppingCart = await this.context.for(ShoppingCart).find({ limit: 100 });
+    this.shoppingCart = await this.context.for(ShoppingCart).find({ limit: 100,
+    where:s=>s.Number_Of_Units.isDifferentFrom(0) });
   }
   product(sc: ShoppingCart) {
     return this.context.for(Products_to_Customer).lookup(sc.Product_ID);

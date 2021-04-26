@@ -39,7 +39,7 @@ export class DialogService {
         return await this.context.openDialog(YesNoQuestionComponent, d => d.args = { message: question }, d => d.okPressed);
     }
     async confirmDelete(of: string) {
-        return await this.yesNoQuestion("האם אתה בטוח שתרצה למחוק " + of + "?");
+        return await this.yesNoQuestion("האם אתה בטוח שתרצה למחוק את " + of + "?");
     }
 }
 @Injectable()

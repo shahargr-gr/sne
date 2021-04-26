@@ -47,7 +47,7 @@ export class CustomerOrdersComponent implements OnInit {
       textInMenu: ' מוצרים בהזמנה',
       click: async c => {
         this.context.openDialog(ProductsInOrderComponent,
-          d => d.args = { customerId: c.id.value });
+          d => d.args = { orderId: c.id.value });
       }
     },
     {

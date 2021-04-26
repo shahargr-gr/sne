@@ -100,6 +100,6 @@ export function waitOnInit() {
     return async () => {
       return new Promise((res) => setTimeout(() => {
         res({})
-      }, 3000));
+      }, 10));
     }
 }

@@ -8,6 +8,7 @@ import { Customers } from '../shopping-cart/Customers';
 import { Products_in_Order } from '../products-in-order/Products_in_Order';
 import { ImportExcelComponent } from './import-from-excel.component';
 import { ProductsInOrderComponent } from '../products-in-order/products-in-order.component';
+import { DialogService } from '../common/dialog';
 
 @Component({
   selector: 'app-customers',
@@ -16,9 +17,10 @@ import { ProductsInOrderComponent } from '../products-in-order/products-in-order
 })
 export class CustomersComponent implements OnInit {
 
-  constructor(private context: Context) { }
+  constructor(private context: Context,private dialog:DialogService) { }
   customers = this.context.for(Customers).gridSettings({
     allowCRUD: true,
+    confirmDelete:c=> this.dialog.confirmDelete(c.name.value),
     columnSettings: c => [c.name, c.CustomerNumber],
     gridButtons: [
       {
@@ -42,16 +44,9 @@ export class CustomersComponent implements OnInit {
       click: async c => {
         this.context.openDialog(CustomerOrdersComponent,
           d => d.args = { customerId: c.id.value });
-          rowButtons: [{
-            textInMenu: 'מוצרים בהזמנה',
-            click: async e => {
-              this.context.openDialog(ProductsInOrderComponent,
-                f => f.args = { customerId: e.id.value });
-            }
-          },
-      
           
-        ]
+          
+        
           
     }
   },
