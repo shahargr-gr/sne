@@ -26,13 +26,15 @@ export class ExportExcelComponent implements OnInit {
 
     for await (const p of  this.context.for(Products_in_Order).iterate()) {
       let item = {};
+      let row = [];
       for (const col of p.columns) {
-        item[col.defs.caption] = col.value;
+        row.push( col.value);
       }
-      result.push(item);
+      result.push(row);
     }
+    console.log(result);
     let wb = xlsx.utils.book_new();
-    xlsx.utils.book_append_sheet(wb, xlsx.utils.json_to_sheet(result));
+    xlsx.utils.book_append_sheet(wb, xlsx.utils.json_to_sheet(result,{skipHeader:true}));
     xlsx.writeFile(wb, "products.xlsx");
 
   }

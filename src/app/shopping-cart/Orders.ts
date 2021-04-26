@@ -12,7 +12,6 @@ export class Orders extends IdEntity {
     Creation_Date = new DateColumn('תאריך יצירת הזמנה');
     IsAddition = new BoolColumn('האם זו תוספת להזמנה קיימת?');
     Delivery_Date = new DateColumn('בחר תאריך למשלוח');
-  CustomerID: any;
   ProductSerialNumber: DataControlInfo<Orders>;
   Product_Name: DataControlInfo<Orders>;
     constructor(private context: Context) {
