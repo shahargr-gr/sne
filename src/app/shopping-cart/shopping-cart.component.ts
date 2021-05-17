@@ -63,4 +63,12 @@ export class ShoppingCartComponent implements OnInit {
     }
   }
 
+  async delProduct(sc: ShoppingCart) {
+    var sc1 = sc;
+    if (sc1.Number_Of_Units.value  > 0) {
+      sc1.Number_Of_Units.value = 0;
+      await sc.save();
+    }
+  }
+
 }
