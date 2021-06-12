@@ -69,6 +69,8 @@ export class ShoppingCartComponent implements OnInit {
       sc1.Number_Of_Units.value = 0;
       await sc.save();
     }
+    this.ngOnInit();
+    
   }
 
 }
