@@ -35,7 +35,7 @@ export class ExportExcelComponent implements OnInit {
     console.log(result);
     let wb = xlsx.utils.book_new();
     xlsx.utils.book_append_sheet(wb, xlsx.utils.json_to_sheet(result,{skipHeader:true}));
-    xlsx.writeFile(wb, "products.xlsx");
+    xlsx.writeFile(wb, "10001_15.06.2021.xlsx");
 
   }
 
